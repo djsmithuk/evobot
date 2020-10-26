@@ -23,13 +23,13 @@ module.exports = {
     }
 
     let stream = null;
-    //let streamType = song.url.includes("youtube.com") ? "opus" : "ogg/opus";
-    let streamType = song.url.startsWith('https://youtube.com/%27')? "opus" : "ogg/opus";
+    let streamType = song.url.includes("youtube.com") ? "opus" : "ogg/opus";
+    //let streamType = song.url.startsWith('https://youtube.com/%27')? "opus" : "ogg/opus";
 
     try {
-      if (song.url.startsWith("https://youtube.com/%27")) {
+      if (song.url.includes("youtube.com")) {
         stream = await ytdlDiscord(song.url, { highWaterMark: 1 << 25 });
-      } else if (song.url.startsWith("https://soundcloud.com/%27")) {
+      } else if (song.url.includes("soundcloud.com")) {
         try {
           stream = await scdl.downloadFormat(
             song.url,
