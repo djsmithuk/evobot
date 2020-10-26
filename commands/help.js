@@ -9,7 +9,7 @@ module.exports = {
 
     let helpEmbed = new MessageEmbed()
       .setTitle("YAMB Help")
-      .setDescription("List of commands and a brief description about them.(Unfortunately we have had to disable the 'Alexa' prefix for a short period of time - It will be back soon!)")
+      .setDescription("List of commands and a brief description about them. (Unfortunately we have had to disable the 'Alexa' prefix for a short period of time - It will be back soon!)")
       .setColor("#7289da");
 
     commands.forEach((cmd) => {
