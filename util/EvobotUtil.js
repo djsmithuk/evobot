@@ -4,7 +4,7 @@ module.exports = {
     const botChannel = member.guild.voice.channelID;
 
     if (channelID !== botChannel) {
-      member.send("You need to join the voice channel first!").catch(console.error);
+      member.send("You must be in a VC in order to use this bot!").catch(console.error);
       return;
     }
 
