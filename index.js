@@ -30,7 +30,7 @@ const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 client.on("ready", () => {
   console.log(`${client.user.username} ready!`);
   /**client.user.setActivity(`{ type: 'LISTENING' } Banging Tunes 🎵`); */
-  //client.user.setActivity('With CF Workers', { type: 'PLAYING' })
+  client.user.setActivity('With CF Workers', { type: 'PLAYING' })
   'discord.js', { type: 'WATCHING' }
 });
 client.on("warn", (info) => console.log(info));
