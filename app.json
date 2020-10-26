@@ -1,7 +1,6 @@
 {
-  "name": "EvoBot",
-  "description": "🤖 Discord Music Bot built with discord.js",
-  "repository": "https://github.com/eritislami/evobot",
+  "name": "YAMB",
+  "description": "Yet Another Music Bot, Created with Love from London 💗",
   "logo": "https://i.imgur.com/JFxgbWH.png",
-  "keywords": ["discord", "discordjs", "music", "bot"]
+  "keywords": ["yamb", "discordjs", "music", "bot"]
 }
