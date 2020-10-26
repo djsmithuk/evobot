@@ -9,8 +9,8 @@ module.exports = {
 
     let helpEmbed = new MessageEmbed()
       .setTitle("YAMB Help")
-      .setDescription("List of all commands")
-      .setColor("#F8AA2A");
+      .setDescription("List of commands and a brief description about them.")
+      .setColor("#7289da");
 
     commands.forEach((cmd) => {
       helpEmbed.addField(
