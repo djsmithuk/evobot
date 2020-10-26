@@ -29,7 +29,7 @@ const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
  */
 client.on("ready", () => {
   console.log(`${client.user.username} ready!`);
-  client.user.setActivity('discord.js', { type: 'LISTENING' }`Banging Tunes 🎵`);
+  client.user.setActivity(`{ type: 'LISTENING' } Banging Tunes 🎵`);
 });
 client.on("warn", (info) => console.log(info));
 client.on("error", console.error);
