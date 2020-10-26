@@ -26,7 +26,7 @@ module.exports = {
     let resultsEmbed = new MessageEmbed()
       .setTitle(`**Reply with the song number you want to play**`)
       .setDescription(`Results for: ${search}`)
-      .setColor("#F8AA2A");
+      .setColor("#7289da");
 
     try {
       const results = await youtube.searchVideos(search, 10);

@@ -13,7 +13,7 @@ module.exports = {
     let queueEmbed = new MessageEmbed()
       .setTitle("YAMB Music Queue")
       .setDescription(description)
-      .setColor("#F8AA2A");
+      .setColor("#7289da");
 
     const splitDescription = splitMessage(description, {
       maxLength: 2048,

@@ -14,8 +14,8 @@ module.exports = {
     let nowPlaying = new MessageEmbed()
       .setTitle("Now playing")
       .setDescription(`${song.title}\n${song.url}`)
-      .setColor("#F8AA2A")
-      .setAuthor("EvoBot")
+      .setColor("#7289da")
+      .setAuthor("Yet.Another.Music.Bot")
       .addField(
         "\u200b",
         new Date(seek * 1000).toISOString().substr(11, 8) +

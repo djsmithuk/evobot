@@ -89,6 +89,6 @@ client.on("message", async (message) => {
     command.execute(message, args);
   } catch (error) {
     console.error(error);
-    message.reply("There was an error executing that command.").catch(console.error);
+    message.reply("There was an error, thats all we know.").catch(console.error);
   }
 });
