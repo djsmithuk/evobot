@@ -5,7 +5,6 @@ module.exports = {
   aliases: ["inv"],
   description: "Invite the bot to your server.",
   execute(message) {
-    let commands = message.client.commands.array();
 
     let inviteEmbed = new MessageEmbed()
       .setTitle("Add us to your server!")
@@ -15,7 +14,7 @@ module.exports = {
       .setThumbnail(message.guild.iconURL())
       .addField(`Use the following link to add YAMB to your discord server : https://djsmith.uk/yamb`)
 
-    //inviteEmbed.setTimestamp();
+    inviteEmbed.setTimestamp();
 
     return message.channel.send(inviteEmbed).catch(console.error);
   }
