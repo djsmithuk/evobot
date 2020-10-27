@@ -1,18 +1,28 @@
-const Discord = require('discord.js');
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "invite",
   aliases: ["inv"],
   description: "Invite the bot to your server.",
   execute(message) {
-    // inside a command, event listener, etc.
-    const exampleEmbed = new Discord.MessageEmbed()
-    .setColor('#7289da')
-    .setTitle('Add us to your server!')
-    .setAuthor('Yet.Another.Music.Bot')
-    .setDescription('Love using YAMB? Great, Thank you! Consider adding it to your server [here](https://djsmith.uk/yamb)')
-    .setThumbnail(message.guild.iconURL())
-    
-    channel.send(exampleEmbed);
+    let commands = message.client.commands.array();
+
+    let inviteEmbed = new MessageEmbed()
+      .setTitle("Add us to your server!")
+      .setDescription("Love using YAMB? Great, Thank you! Consider adding it to your server")
+      .setColor("#7289da")
+      .setAuthor('Yet.Another.Music.Bot')
+      .setThumbnail(message.guild.iconURL())
+
+    commands.forEach((cmd) => {
+      inviteEmbed.addField(
+        `Use the following link to add YAMB to your discord server : https://djsmith.uk/yamb`,
+        true
+      );
+    });
+
+    inviteEmbed.setTimestamp();
+
+    return message.channel.send(inviteEmbed).catch(console.error);
   }
 };
