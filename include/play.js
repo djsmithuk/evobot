@@ -23,8 +23,8 @@ module.exports = {
     }
 
     let stream = null;
-    let streamType = song.url.includes("youtube.com") ? "opus" : "ogg/opus";
-    //let streamType = song.url.startsWith('https://youtube.com/%27')? "opus" : "ogg/opus";
+    //let streamType = song.url.includes("youtube.com") ? "opus" : "ogg/opus";
+    let streamType = song.url.includes('youtube.com')? "opus" : "ogg/opus";
 
     try {
       if (song.url.includes("youtube.com")) {
