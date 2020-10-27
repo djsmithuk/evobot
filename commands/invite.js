@@ -1,13 +1,17 @@
 module.exports = {
     name: "invite",
-    aliases: ['inv']
     description: "Invite the bot to your server.",
     execute(message) {
   
-      const data = [];
+      let invMe = new MessageEmbed()
+      .setTitle("Invite Me")
+      .setDescription(`Add me to your discord server [here](https://djsmith.uk/yamb)!`)
+      .setColor("#7289da")
+      .setAuthor("Yet.Another.Music.Bot")
+      .addField(
+          
+      );
   
-      data.push(`Invite link: https://djsmith.uk/yamb.`);
-  
-      message.channel.send(data, { split: true });
+      return message.channel.send(invMe);
     },
   };
