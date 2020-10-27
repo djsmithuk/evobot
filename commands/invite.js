@@ -1,19 +1,18 @@
-const { MessageEmbed } = require("discord.js");
+const Discord = require('discord.js');
 
 module.exports = {
   name: "invite",
   aliases: ["inv"],
   description: "Invite the bot to your server.",
   execute(message) {
-    let commands = message.client.commands.array();
-
-    let inviteEmbed = new MessageEmbed()
-      .setTitle("Add us to your server!")
-      .setDescription("Love using YAMB? Great, Thank you! Consider adding it to your server https://djsmith.uk/yamb")
-      .setColor("#7289da");
-
-    inviteEmbed.setTimestamp();
-
-    return message.channel.send(inviteEmbed).catch(console.error);
+    // inside a command, event listener, etc.
+    const exampleEmbed = new Discord.MessageEmbed()
+    .setColor('#7289da')
+    .setTitle('Add us to your server!')
+    .setAuthor('Yet.Another.Music.Bot')
+    .setDescription('Love using YAMB? Great, Thank you! Consider adding it to your server [here](https://djsmith.uk/yamb)')
+    .setThumbnail(message.guild.iconURL())
+    
+    channel.send(exampleEmbed);
   }
 };
