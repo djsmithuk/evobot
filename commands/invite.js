@@ -1,13 +1,19 @@
+const { MessageEmbed } = require("discord.js");
+
 module.exports = {
-    name: "invite",
-    aliases: ['inv']
-    description: "Invite the bot to your server.",
-    execute(message) {
-  
-      const data = [];
-  
-      data.push(`Invite link: https://djsmith.uk/yamb.`);
-  
-      message.channel.send(data, { split: true });
-    },
-  };
+  name: "invite",
+  aliases: ["inv"],
+  description: "Invite the bot to your server.",
+  execute(message) {
+    let commands = message.client.commands.array();
+
+    let inviteEmbed = new MessageEmbed()
+      .setTitle("Add us to your server!")
+      .setDescription("Love using YAMB? Great, Thank you! Consider adding it to your server https://djsmith.uk/yamb")
+      .setColor("#7289da");
+
+    inviteEmbed.setTimestamp();
+
+    return message.channel.send(inviteEmbed).catch(console.error);
+  }
+};
