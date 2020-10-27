@@ -15,7 +15,7 @@ module.exports = {
       .setThumbnail(message.guild.iconURL())
       .addField(`Use the following link to add YAMB to your discord server : https://djsmith.uk/yamb`)
 
-    inviteEmbed.setTimestamp();
+    //inviteEmbed.setTimestamp();
 
     return message.channel.send(inviteEmbed).catch(console.error);
   }
