@@ -1,6 +1,6 @@
 module.exports = {
     name: "invite",
-    alias: ["inv"]
+    aliases: ["inv"]
     description: "Invite the bot to your server.",
     execute(message) {
   
