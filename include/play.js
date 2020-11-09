@@ -14,7 +14,7 @@ module.exports = {
       PRUNING = process.env.PRUNING;
       SOUNDCLOUD_CLIENT_ID = process.env.SOUNDCLOUD_CLIENT_ID;
     }
-	
+
     const queue = message.client.queue.get(message.guild.id);
 
     if (!song) {
@@ -24,17 +24,16 @@ module.exports = {
     }
 
     let stream = null;
-    //let streamType = song.url.includes("youtube.com") ? "opus" : "ogg/opus";
-    let streamType = song.url.includes('youtube.com')? "opus" : "ogg/opus";
+    let streamType = song.url.includes("youtube.com") ? "opus" : "ogg/opus";
 
     try {
       if (song.url.includes("youtube.com")) {
         stream = await ytdlDiscord(song.url, { highWaterMark: 1 << 25 });
       } else if (song.url.includes("soundcloud.com")) {
         try {
-           stream = await scdl.downloadFormat(song.url, scdl.FORMATS.OPUS, SOUNDCLOUD_CLIENT_ID);
+          stream = await scdl.downloadFormat(song.url, scdl.FORMATS.OPUS, SOUNDCLOUD_CLIENT_ID);
         } catch (error) {
-           stream = await scdl.downloadFormat(song.url, scdl.FORMATS.MP3, SOUNDCLOUD_CLIENT_ID);
+          stream = await scdl.downloadFormat(song.url, scdl.FORMATS.MP3, SOUNDCLOUD_CLIENT_ID);
           streamType = "unknown";
         }
       }
@@ -147,7 +146,7 @@ module.exports = {
 
         case "🔊":
           reaction.users.remove(user).catch(console.error);
-          if (!canModifyQueue(member) || queue.volume == 0) return;
+          if (!canModifyQueue(member) || queue.volume == 100) return;
           if (queue.volume + 10 >= 100) queue.volume = 100;
           else queue.volume = queue.volume + 10;
           queue.connection.dispatcher.setVolumeLogarithmic(queue.volume / 100);
