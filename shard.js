@@ -11,7 +11,7 @@ try {
 
 const manager = new ShardingManager('./index.js', {
     totalShards: 'auto',
-    token: config.TOKEN
+    token: TOKEN
 });
 
 // Spawn your shards
