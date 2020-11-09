@@ -3,6 +3,10 @@ const scdl = require("soundcloud-downloader");
 const { canModifyQueue } = require("../util/yambUtils");
 
 module.exports = {
+  name: "play",
+  cooldown: 3,
+  aliases: ["p"],
+  description: "Plays audio from YouTube or Soundcloud",
   async play(song, message) {
     let PRUNING, SOUNDCLOUD_CLIENT_ID;
 

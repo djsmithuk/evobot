@@ -16,7 +16,8 @@ module.exports = {
       .setDescription(`${song.title}\n${song.url}`)
       .setColor("#7289da")
       .setAuthor("Yet.Another.Music.Bot")
-      .addField(
+      if (song.duration > 0) {
+      nowPlaying.addField(
         "\u200b",
         new Date(seek * 1000).toISOString().substr(11, 8) +
           "[" +
@@ -26,8 +27,8 @@ module.exports = {
         false
       );
 
-    if (song.duration > 0)
       nowPlaying.setFooter("Time Remaining: " + new Date(left * 1000).toISOString().substr(11, 8));
+	  }
 
     return message.channel.send(nowPlaying);
   }

@@ -1,6 +1,6 @@
 {
   "name": "YAMB",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "MAde with love from London, UK 💗",
   "main": "index.js",
   "author": "Daniel Smith <hi@djsmith.uk>",
@@ -18,7 +18,7 @@
     "simple-youtube-api": "^5.1.1",
     "soundcloud-downloader": "^0.1.6",
     "string-progressbar": "^1.0.1",
-    "ytdl-core": "^3.4.2",
+    "ytdl-core": "^4.0.3",
     "ytdl-core-discord": "^1.2.4"
   },
   "scripts": {

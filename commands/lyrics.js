@@ -19,7 +19,7 @@ module.exports = {
     }
 
     let lyricsEmbed = new MessageEmbed()
-      .setTitle("Lyrics")
+      .setTitle("${queue.songs[0].title} — LyricsLyrics")
       .setDescription(lyrics)
       .setColor("#7289da")
       .setTimestamp();

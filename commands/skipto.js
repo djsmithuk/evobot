@@ -5,12 +5,7 @@ module.exports = {
   aliases: ["st"],
   description: "Skip to the selected queue number",
   execute(message, args) {
-    if (!args.length)
-      return message
-        .reply(`Usage: ${message.client.prefix}${module.exports.name} <Queue Number>`)
-        .catch(console.error);
-
-    if (isNaN(args[0]))
+    if (!args.length || isNaN(args[0]))
       return message
         .reply(`Usage: ${message.client.prefix}${module.exports.name} <Queue Number>`)
         .catch(console.error);

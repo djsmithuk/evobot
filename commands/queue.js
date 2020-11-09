@@ -5,48 +5,60 @@ module.exports = {
   aliases: ["q"],
   description: "Show the music queue and now playing.",
   async execute(message) {
-       const serverQueue = message.client.queue.get(message.guild.id);
-        if (!serverQueue) return message.channel.send('❌ **Nothing playing in this server**');
+	const permissions = message.channel.permissionsFor(message.client.user);
+    if (!permissions.has(["MANAGE_MESSAGES", "ADD_REACTIONS"]))
+      return message.reply("Missing permission to manage messages or add reactions");
+      const queue = message.client.queue.get(message.guild.id);
+    if (!queue) return message.channel.send("❌ **Nothing playing in this server**");
+		
+    let currentPage = 0;
+    const embeds = generateQueueEmbed(message, queue.songs);
+
+    const queueEmbed = await message.channel.send(
+      `**Current Page - ${currentPage + 1}/${embeds.length}**`,
+      embeds[currentPage]
+    );
       try {
-        let currentPage = 0;
-        const embeds = generateQueueEmbed(message, serverQueue.songs);
-        const queueEmbed = await message.channel.send(`**Current Page - ${currentPage + 1}/${embeds.length}**`, embeds[currentPage]);
+        
         await queueEmbed.react('⬅️');
         await queueEmbed.react('⏹');
         await queueEmbed.react('➡️');
+		 } catch (error) {
+      console.error(error);
+      message.channel.send(error.message).catch(console.error);
+    }
 
-        const filter = (reaction, user) => ['⬅️', '⏹', '➡️'].includes(reaction.emoji.name) && (message.author.id === user.id);
-        const collector = queueEmbed.createReactionCollector(filter);
+        const filter = (reaction, user) =>
+      ["⬅️", "⏹", "➡️"].includes(reaction.emoji.name) && message.author.id === user.id;
+    const collector = queueEmbed.createReactionCollector(filter, { time: 60000 });
         
-        collector.on('collect', async (reaction, user) => {
-          try {
-            if (reaction.emoji.name === '➡️') {
-                if (currentPage < embeds.length - 1) {
-                    currentPage++;
-                    queueEmbed.edit(`**Current Page - ${currentPage + 1}/${embeds.length}**`, embeds[currentPage]);
-                } 
-            } else if (reaction.emoji.name === '⬅️') {
-                if (currentPage !== 0) {
-                    --currentPage;
-                    queueEmbed.edit(`**Current Page - ${currentPage + 1}/${embeds.length}**`, embeds[currentPage]);
-                }
-            } else {
-                collector.stop();
-                reaction.message.reactions.removeAll();
-            }
-            await reaction.users.remove(message.author.id);
-          } catch {
-            return message.channel.send("**Missing Permissions - [ADD_REACTIONS, MANAGE_MESSAGES]!**");
+      collector.on("collect", async (reaction, user) => {
+      try {
+        if (reaction.emoji.name === "➡️") {
+          if (currentPage < embeds.length - 1) {
+            currentPage++;
+            queueEmbed.edit(`**Current Page - ${currentPage + 1}/${embeds.length}**`, embeds[currentPage]);
           }
-        });
-      } catch {
-          return message.channel.send("**Missing Permissions - [ADD_REACTIONS, MANAGE_MESSAGES]!**");
+        } else if (reaction.emoji.name === "⬅️") {
+          if (currentPage !== 0) {
+            --currentPage;
+            queueEmbed.edit(`**Current Page - ${currentPage + 1}/${embeds.length}**`, embeds[currentPage]);
+            }
+        } else {
+          collector.stop();
+          reaction.message.reactions.removeAll();
+          }
+      await reaction.users.remove(message.author.id);
+      } catch (error) {
+        console.error(error);
+        return message.channel.send(error.message).catch(console.error);
       }
+    });  
     }
 };
 
 function generateQueueEmbed(message, queue) {
-    const embeds = [];
+    let embeds = [];
     let k = 10;
     for (let i = 0; i< queue.length; i += 10) {
         const current = queue.slice(i, k);
