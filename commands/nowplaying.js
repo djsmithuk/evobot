@@ -7,6 +7,7 @@ module.exports = {
   execute(message) {
     const queue = message.client.queue.get(message.guild.id);
     if (!queue) return message.reply("There is nothing playing.").catch(console.error);
+
     const song = queue.songs[0];
     const seek = (queue.connection.dispatcher.streamTime - queue.connection.dispatcher.pausedTime) / 1000;
     const left = song.duration - seek;
@@ -16,7 +17,8 @@ module.exports = {
       .setDescription(`${song.title}\n${song.url}`)
       .setColor("#7289da")
       .setAuthor("Yet.Another.Music.Bot")
-      if (song.duration > 0) {
+
+    if (song.duration > 0) {
       nowPlaying.addField(
         "\u200b",
         new Date(seek * 1000).toISOString().substr(11, 8) +
@@ -26,9 +28,8 @@ module.exports = {
           (song.duration == 0 ? " ◉ LIVE" : new Date(song.duration * 1000).toISOString().substr(11, 8)),
         false
       );
-
       nowPlaying.setFooter("Time Remaining: " + new Date(left * 1000).toISOString().substr(11, 8));
-	  }
+    }
 
     return message.channel.send(nowPlaying);
   }
