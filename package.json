@@ -1,7 +1,7 @@
 {
   "name": "YAMB",
   "version": "0.5.0",
-  "description": "MAde with love from London, UK 💗",
+  "description": "Made with love from London, UK 💗",
   "main": "index.js",
   "author": "Daniel Smith <hi@djsmith.uk>",
   "private": true,
@@ -9,7 +9,7 @@
   "engines": {
     "node": ">=12.0.0"
   },
-  
+
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
 	"array.prototype.move": "^0.0.4",
