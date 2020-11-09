@@ -12,7 +12,7 @@ module.exports = {
       .setColor("#7289da")
       .setAuthor('Yet.Another.Music.Bot')
       .setThumbnail(message.guild.iconURL())
-      .addField(`Use the following link to add YAMB to your discord server`, 'https://djsmith.uk/yamb', true)
+      .addField(`Use the following link to add YAMB to your discord server **NOTE: This will add the main release not canary build**`, 'https://djsmith.uk/yamb', true)
 
     inviteEmbed.setTimestamp();
 
