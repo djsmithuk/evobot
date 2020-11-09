@@ -16,6 +16,7 @@ module.exports = {
       helpEmbed.addField(
         `**${message.client.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`,
         `${cmd.description}`,
+        `\u200B`, `\u200B`,
         true
       );
     });
