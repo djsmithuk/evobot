@@ -23,6 +23,6 @@
     "ytdl-core-discord": "^1.2.4"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node shard.js"
   }
 }
