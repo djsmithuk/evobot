@@ -12,7 +12,7 @@ module.exports = {
       .setColor("#7289da")
       .setAuthor('Yet.Another.Music.Bot')
       .setThumbnail(message.guild.iconURL())
-      .addField('<:DSS_info:763387095637032970> In Development', 'Sharding - This feature has been delayed.', true)
+      .addField('<:DSS_info:763387095637032970> In Testing', 'Sharding - This feature has been delayed.', true)
       //.addField('<:DSS_info:763387095637032970> <:DSS_removed:763387094991110144> In Testing', 'Custom server prefixes and preferences', true)
 
     changesEmbed.setTimestamp();
