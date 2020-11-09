@@ -28,13 +28,14 @@ module.exports = {
     let resultsEmbed = new MessageEmbed()
       .setTitle(`**Reply with the song number you want to play**`)
       .setDescription(`Results for: ${search}`)
-      .setColor("#7289da");
+      .setColor("#7289da")
+      .setAuthor("Yet.Another.Music.Bot")
 
     try {
       const results = await youtube.searchVideos(search, 10);
       results.map((video, index) => resultsEmbed.addField(video.shortURL, `${index + 1}. ${video.title}`));
 
-    let resultsMessage = await message.channel.send(resultsEmbed);
+      let resultsMessage = await message.channel.send(resultsEmbed);
 
       function filter(msg) {
         const pattern = /^[0-9]{1,2}(\s*,\s*[0-9]{1,2})*$/g;
@@ -59,13 +60,12 @@ module.exports = {
       }
 
       message.channel.activeCollector = false;
-      message.client.commands.get("play").execute(message, [choice]);
       resultsMessage.delete().catch(console.error);
-	  response.first().delete().catch(console.error);
+      response.first().delete().catch(console.error);
     } catch (error) {
       console.error(error);
       message.channel.activeCollector = false;
-	  message.reply(error.message).catch(console.error);
+      message.reply(error.message).catch(console.error);
     }
   }
 };
