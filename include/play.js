@@ -18,7 +18,7 @@ module.exports = {
     const queue = message.client.queue.get(message.guild.id);
 
     if (!song) {
-      queue.channel.leave();
+      setTimeout(function() { if (!queue.connection.dispatcher && message.guild.me.voice.channel ) {queue.channel.leave(); queue.textChannel.send("You haven't played any music for a while so i'm going to take a nap!").catch(console.error);} else return },6000);
       message.client.queue.delete(message.guild.id);
       return queue.textChannel.send("🚫 Music queue ended.").catch(console.error);
     }
