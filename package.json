@@ -9,9 +9,10 @@
   "engines": {
     "node": ">=12.0.0"
   },
+  
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
-    "array.prototype.move": "^0.0.4",
+	"array.prototype.move": "^0.0.4",
     "discord.js": "^12.4.1",
     "ffmpeg-static": "^4.2.3",
     "lyrics-finder": "^21.0.5",
