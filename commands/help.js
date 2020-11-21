@@ -12,15 +12,16 @@ module.exports = {
       .setDescription("List of commands and a brief description about them. (Unfortunately we have had to disable the 'Alexa' prefix for a short period of time - It will be back soon!)")
       .setColor("#7289da");
 
-    commands.forEach((cmd) => {
-      helpEmbed.addField(
-        `**${message.client.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`,
-        `${cmd.description}`,
-        true
-      );
-    });
+      commands.forEach((cmd) => {
+            helpEmbed.addField(
+              `**${message.client.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`,
+              `${cmd.description}`,
+              `\u200B`, `\u200B`,
+              true
+            );
+          });
 
-    helpEmbed.setTimestamp();
+          helpEmbed.setTimestamp();
 
     return message.channel.send(helpEmbed).catch(console.error);
   }
