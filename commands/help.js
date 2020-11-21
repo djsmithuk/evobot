@@ -8,20 +8,19 @@ module.exports = {
     let commands = message.client.commands.array();
 
     let helpEmbed = new MessageEmbed()
-      .setTitle("YAMB Canary Help")
-      .setDescription("This version of YAMB is a prototype, it will not be online 24/7 and will not work outside of this server.")
+      .setTitle("YAMB Help")
+      .setDescription("List of commands and a brief description about them. (Unfortunately we have had to disable the 'Alexa' prefix for a short period of time - It will be back soon!)")
       .setColor("#7289da");
 
     commands.forEach((cmd) => {
       helpEmbed.addField(
         `**${message.client.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`,
         `${cmd.description}`,
-        `\u200B`, `\u200B`,
         true
       );
     });
 
-          helpEmbed.setTimestamp();
+    helpEmbed.setTimestamp();
 
     return message.channel.send(helpEmbed).catch(console.error);
   }
