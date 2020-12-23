@@ -4,16 +4,7 @@
 const { Client, Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
-
-let TOKEN, PREFIX;
-try {
-  const config = require("./config.json");
-  TOKEN = config.TOKEN;
-  PREFIX = config.PREFIX;
-} catch (error) {
-  TOKEN = process.env.TOKEN;
-  PREFIX = process.env.PREFIX;
-}
+const { TOKEN, PREFIX } = require("./util/yambtUtils");
 
 const client = new Client({ disableMentions: "everyone" });
 
@@ -89,6 +80,6 @@ client.on("message", async (message) => {
     command.execute(message, args);
   } catch (error) {
     console.error(error);
-    message.reply("There was an error, thats all we know.").catch(console.error);
+    message.reply("There was an error, that's all we know!").catch(console.error);
   }
 });

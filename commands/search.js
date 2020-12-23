@@ -1,13 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const YouTubeAPI = require("simple-youtube-api");
-
-let YOUTUBE_API_KEY;
-try {
-  const config = require("../config.json");
-  YOUTUBE_API_KEY = config.YOUTUBE_API_KEY;
-} catch (error) {
-  YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
-}
+const { YOUTUBE_API_KEY } = require("../util/yambtUtils");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 
 module.exports = {
@@ -28,8 +21,7 @@ module.exports = {
     let resultsEmbed = new MessageEmbed()
       .setTitle(`**Reply with the song number you want to play**`)
       .setDescription(`Results for: ${search}`)
-      .setColor("#7289da")
-      .setAuthor("Yet.Another.Music.Bot")
+      .setColor("#F8AA2A");
 
     try {
       const results = await youtube.searchVideos(search, 10);
