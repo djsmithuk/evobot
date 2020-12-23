@@ -4,16 +4,17 @@ const { canModifyQueue, STAY_TIME } = require("../util/yambUtils");
 
 module.exports = {
   async play(song, message) {
-    let PRUNING, SOUNDCLOUD_CLIENT_ID;
+    const { SOUNDCLOUD_CLIENT_ID } = require("../util/EvobotUtil");
+
+    let config;
 
     try {
-      const config = require("../config.json");
-      PRUNING = config.PRUNING;
-      SOUNDCLOUD_CLIENT_ID = config.SOUNDCLOUD_CLIENT_ID;
+      config = require("../config.json");
     } catch (error) {
-      PRUNING = process.env.PRUNING;
-      SOUNDCLOUD_CLIENT_ID = process.env.SOUNDCLOUD_CLIENT_ID;
+      config = null;
     }
+
+    const PRUNING = config ? config.PRUNING : process.env.PRUNING;
 
     const queue = message.client.queue.get(message.guild.id);
 
@@ -32,7 +33,7 @@ module.exports = {
 
     try {
       if (song.url.includes("youtube.com")) {
-        stream = await ytdlDiscord(song.url, { highWaterMark: 1 << 25 });
+        stream = await ytdl(song.url, { highWaterMark: 1 << 25 });
       } else if (song.url.includes("soundcloud.com")) {
         try {
           stream = await scdl.downloadFormat(song.url, scdl.FORMATS.OPUS, SOUNDCLOUD_CLIENT_ID);
@@ -188,7 +189,7 @@ module.exports = {
 
     collector.on("end", () => {
       playingMessage.reactions.removeAll().catch(console.error);
-        if (PRUNING == "true" && playingMessage && !playingMessage.deleted) {
+      if (PRUNING && playingMessage && !playingMessage.deleted) {
         playingMessage.delete({ timeout: 3000 }).catch(console.error);
       }
     });
