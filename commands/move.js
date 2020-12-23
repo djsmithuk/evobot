@@ -1,5 +1,5 @@
 const move = require("array-move");
-const { canModifyQueue } = require("../util/yambtUtils");
+const { canModifyQueue } = require("../util/yambUtils");
 
 module.exports = {
   name: "move",
