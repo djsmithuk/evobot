@@ -11,3 +11,6 @@ module.exports = {
     return true;
   }
 };
+
+
+exports.STAY_TIME = config ? config.STAY_TIME : process.env.STAY_TIME;

@@ -1,6 +1,6 @@
 const ytdlDiscord = require("ytdl-core-discord");
 const scdl = require("soundcloud-downloader");
-const { canModifyQueue } = require("../util/yambUtils");
+const { canModifyQueue, STAY_TIME } = require("../util/yambUtils");
 
 module.exports = {
   async play(song, message) {
@@ -18,9 +18,13 @@ module.exports = {
     const queue = message.client.queue.get(message.guild.id);
 
     if (!song) {
-      setTimeout(function() { if (!queue.connection.dispatcher && message.guild.me.voice.channel ) {queue.channel.leave(); queue.textChannel.send("You haven't played any music for a while so i'm going to take a nap!").catch(console.error);} else return },6000);
-      message.client.queue.delete(message.guild.id);
-      return queue.textChannel.send("🚫 Music queue ended.").catch(console.error);
+      setTimeout(function () {
+        if (queue.connection.dispatcher && message.guild.me.voice.channel) return;
+        queue.channel.leave();
+        queue.textChannel.send("Leaving voice channel...");
+      }, STAY_TIME * 1000);
+      queue.textChannel.send("❌ Music queue ended.").catch(console.error);
+      return message.client.queue.delete(message.guild.id);
     }
 
     let stream = null;
@@ -184,7 +188,7 @@ module.exports = {
 
     collector.on("end", () => {
       playingMessage.reactions.removeAll().catch(console.error);
-      if (PRUNING && playingMessage && !playingMessage.deleted) {
+        if (PRUNING == "true" && playingMessage && !playingMessage.deleted) {
         playingMessage.delete({ timeout: 3000 }).catch(console.error);
       }
     });
