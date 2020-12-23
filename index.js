@@ -4,7 +4,7 @@
 const { Client, Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
-const { TOKEN, PREFIX } = require("./util/yambtUtils");
+const { TOKEN, PREFIX } = require("./util/yambUtils");
 
 const client = new Client({ disableMentions: "everyone" });
 
