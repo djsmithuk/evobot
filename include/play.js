@@ -4,7 +4,7 @@ const { canModifyQueue, STAY_TIME } = require("../util/yambUtils");
 
 module.exports = {
   async play(song, message) {
-    const { SOUNDCLOUD_CLIENT_ID } = require("../util/EvobotUtil");
+    const { SOUNDCLOUD_CLIENT_ID } = require("../util/yambUtils");
 
     let config;
 
