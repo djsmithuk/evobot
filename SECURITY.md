@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-Only the latest commits of Y.A.M.B is being supported, obviously if anything is found within older commits and are still present in the latest code please report and they will be looked into.
+Only the latest commits of Y.A.M.B is being supported, obviously if anything is found within older commits and is still present in the latest code please report and they will be looked into.
 
 | Version | Supported          |
 | ------- | ------------------ |
