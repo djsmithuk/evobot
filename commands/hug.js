@@ -17,7 +17,7 @@ module.exports = {
           .setImage("https://i.pinimg.com/originals/f2/80/5f/f2805f274471676c96aff2bc9fbedd70.gif")
           .setColor("#7289da")
           .setFooter('@${message.author.username} Hugged @${target.username}')
-      return message.channel.send(hugEmbed).catch(console.error();
+      return message.channel.send(hugEmbed).catch(console.error);
     }
   }
 }
