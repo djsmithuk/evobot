@@ -16,7 +16,7 @@ module.exports = {
           .setTitle("Get Hugged Kiddo")
           .setImage("https://i.pinimg.com/originals/f2/80/5f/f2805f274471676c96aff2bc9fbedd70.gif")
           .setColor("#7289da")
-          .setFooter(`${message.author.tag} Hugged @${message.mentions.users.first().id}`)
+          .setFooter(`${message.author.id} Hugged <@${message.mentions.users.first().id}>`)
       return message.channel.send(hugEmbed).catch(console.error);
     }
   }
