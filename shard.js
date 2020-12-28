@@ -14,8 +14,6 @@ const manager = new ShardingManager('./index.js', {
     token: TOKEN
 });
 
-// Spawn your shards
 manager.spawn();
 
-// Emitted when a shard is created
 manager.on('shardCreate', (shard) => console.log(`Shard ${shard.id} launched`));
