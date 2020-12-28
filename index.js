@@ -35,7 +35,7 @@ client.on("error", console.error);
 /**
  * Import all commands
  */
-const commandFiles = readdirSync(join(__dirname, "commands" && "commands/general" && "commands/music" && "commmands/misc")).filter((file) => file.endsWith(".js"));
+const commandFiles = readdirSync(join(__dirname, "commands" && "commands/general" && "commands/music" && "commmands/utils")).filter((file) => file.endsWith(".js"));
 for (const file of commandFiles) {
   const command = require(join(__dirname, "commands", `${file}`));
   client.commands.set(command.name, command);
