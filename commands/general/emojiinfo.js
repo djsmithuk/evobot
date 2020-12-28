@@ -62,7 +62,7 @@ module.exports = {
 
 
 b.setURL(link)
-b.setColor('RANDOM')
+b.setColor('#7289da')
   message.channel.send(b)
 
 
