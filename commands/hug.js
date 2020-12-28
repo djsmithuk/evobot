@@ -1,4 +1,4 @@
-/*const { MessageEmbed, Message } = require('discord.js');*/
+const { MessageEmbed, Message } = require('discord.js');
 
 module.exports = {
   name: 'hug',
@@ -8,7 +8,7 @@ module.exports = {
 
     if (!args) {
       message.delete();
-      return message.channel.send("<@${message.author.id}>! Please Tag A User To Hug Or Tag Yourself To Hug Yourself lol ;(")
+      return message.channel.send('<@${message.author.id}>! Please Tag A User To Hug Or Tag Yourself To Hug Yourself lol ;(')
     }
     else{
       message.delete();
