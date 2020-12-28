@@ -13,7 +13,7 @@ module.exports = {
     else{
       message.delete();
       let hugEmbed = new MessageEmbed()
-          .setTitle(`Get Hugged, ${message.mentions.users.first()}`)
+          .setTitle(`Get Hugged, @<${message.mentions.users.first().id}>`)
           .setImage("https://i.pinimg.com/originals/f2/80/5f/f2805f274471676c96aff2bc9fbedd70.gif")
           .setColor("#7289da")
       return message.channel.send(hugEmbed).catch(console.error);
