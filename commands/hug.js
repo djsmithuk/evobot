@@ -4,7 +4,7 @@ module.exports = {
     name: 'hug',
     description: 'Hug A Member',
     execute(message) {
-        let target = message.mentions.users.first()
+        const target = message.mentions.users.first()
         if (!target) return message.channel.send(`<@${message.author.id}>! Please Tag A User To Hug Or Tag Yourself To Hug Yourself lol ;(`)
         if (target.id === message.author.id) {
             let hugEmbed = new MessageEmbed()
