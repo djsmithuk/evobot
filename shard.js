@@ -3,7 +3,7 @@ const { ShardingManager } = require('discord.js');
 
 let TOKEN, PREFIX;
 try {
-  const config = require("./config.json");
+  const config = require("./util/yambUtils");
   TOKEN = config.TOKEN;
 } catch (error) {
   TOKEN = process.env.TOKEN;
