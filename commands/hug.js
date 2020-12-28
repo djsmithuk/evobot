@@ -13,7 +13,7 @@ module.exports = {
     else{
       message.delete();
       let hugEmbed = new MessageEmbed()
-          .setTitle("Get Hugged Kiddo")
+          .setTitle("Get Hugged Kiddo!")
           .setDescription(`${message.author} sends their love to ${message.mentions.users.first()}`)
           .setThumbnail("https://i.pinimg.com/originals/f2/80/5f/f2805f274471676c96aff2bc9fbedd70.gif")
           .setColor("#7289da")
