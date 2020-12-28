@@ -8,7 +8,7 @@ module.exports = {
 
     if (!args) {
       message.delete();
-      return message.channel.send('<@${message.author.id}>! Please Tag A User To Hug Or Tag Yourself To Hug Yourself lol ;(')
+      return message.channel.send(`<@${message.author.id}>! Please Tag A User To Hug Or Tag Yourself To Hug Yourself lol ;(`)
     }
     else{
       message.delete();
@@ -16,7 +16,7 @@ module.exports = {
           .setTitle("Get Hugged Kiddo")
           .setImage("https://i.pinimg.com/originals/f2/80/5f/f2805f274471676c96aff2bc9fbedd70.gif")
           .setColor("#7289da")
-          .setFooter('@${message.author.username} Hugged @${target.username}')
+          .setFooter(`@${message.author.username} Hugged @${target.username}`)
       return message.channel.send(hugEmbed).catch(console.error);
     }
   }
