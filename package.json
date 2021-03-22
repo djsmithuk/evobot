@@ -19,7 +19,7 @@
     "lyrics-finder": "^21.7.0",
     "simple-youtube-api": "^5.1.1",
     "soundcloud-downloader": "^0.2.4",
-    "string-progressbar": "^1.0.1",
+    "string-progressbar": "^1.0.3",
     "ytdl-core": "^4.3.0",
     "newrelic": "^7.1.3"
   },
