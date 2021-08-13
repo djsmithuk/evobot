@@ -13,7 +13,7 @@
   "dependencies": {
     "@discordjs/opus": "^0.5.0",
     "array-move": "^3.0.1",
-    "discord.js": "^12.5.1",
+    "discord.js": "^13.1.0",
     "erit-ytdl": "^0.1.3",
     "ffmpeg-static": "^4.2.8",
     "lyrics-finder": "^21.7.0",
